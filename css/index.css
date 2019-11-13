@@ -8,7 +8,7 @@ body{
 }
 
 .img-container{
-  background-image: url(../images/main.jpg);
+  background-image: url(../images/main.jpeg);
   height: 70%;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@ body{
   text-align: center;
   position: absolute;
   width: 100%;
-  colour: white;
+  color: white;
   height: auto;
   margin-top:200px;
 }
@@ -35,7 +35,7 @@ h2{
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1.7em;
   text-align: center;
-  text-weight: 400;
+  font-weight: 400;
 }
 
 @media only screen and (max-width: 920px){
