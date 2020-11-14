@@ -1,0 +1,523 @@
+body::-webkit-scrollbar {
+    display: none;
+    overflow-x: hidden;
+}
+
+body{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: hidden;
+}
+
+#MainHeader{
+    position: fixed;
+    width: 100%;
+    height: 15%;
+    z-index: 30;
+    box-sizing: border-box;
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /*background-color: rgba(255, 255, 255, .3);*/
+}
+
+#MenuButtonContainer{
+    margin: 0px 13px;
+    z-index: 25;
+    cursor: pointer;
+    display: inline;
+    height: fit-content;
+}
+
+#MenuButtonContainer::after{
+    content: "";
+    position: fixed;
+    padding: 50px 60px;
+    -webkit-transform: translate(-17%, -80%);
+    transform: translate(-17%, -80%);
+}
+
+#Bar1, #Bar2, #Bar3{
+    transition: .2s cubic-bezier(.13,1.27,.82,1);
+}
+
+.bar{
+    position: relative;
+    box-sizing: border-box;
+    background-color: gray;
+    width: 80px;
+    height: 6px;
+    margin: 13px auto;
+    transition: .2s cubic-bezier(.13,1.27,.82,1);
+}
+
+#Bar1.change .bar {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+#Bar1.change{
+    -webkit-transform: translate(0px,19px);
+    transform: translate(0px, 19px);
+}
+
+#Bar2.change .bar{width:0px;}
+
+#Bar3.change .bar{
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#Bar3.change{
+    -webkit-transform: translate(-0px,-19px);
+    transform: translate(0px, -19px);
+}
+
+#MenuCont{
+    position: fixed;
+    z-index: 20;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-transform: translate(-100%, 19px);
+    transform: translate(-100%, 0px);
+    transition: .2s ease-out;
+}
+
+#MenuCont.change{
+    -webkit-transform: translate(0%, 19px);
+    transform: translate(0%, 0px);
+}
+
+#LinksCont{
+    margin: 5vw;
+}
+
+.menuConts{
+    margin: auto 0;
+    height: 54vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menuLinks{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    width: 18vw;
+    border-radius: 80px;
+    text-align: center;
+    cursor: pointer;
+    background-color: white;
+    font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    transition: .1s ease-in-out;
+}
+
+#HomeLink{
+    border: 10px solid #FF9090;
+}
+
+#HomeLink:hover{
+    background-color: #FF9090;
+}
+
+#AboutLink{
+    border: 10px solid #FFF290;
+}
+
+#AboutLink:hover{
+    background-color:  #FFF290;
+}
+
+#ProjectsLink{
+    border: 10px solid #ACFFA5;
+}
+
+#ProjectsLink:hover{
+    background-color: #ACFFA5;
+}
+
+#ContactLink{
+    border: 10px solid #CBA5FF;
+}
+
+#ContactLink:hover{
+    background-color: #CBA5FF;
+}
+
+.menuLinks p{
+    margin: auto auto;
+}
+
+.tabs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+#PageTabs{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    z-index: 20;
+}
+
+.tab{
+    height: 2vh;
+    width: 20px;
+    transition: .2s cubic-bezier(.1,1.59,1,1.07);
+    cursor: pointer;
+}
+
+.tab::after{
+    content: "";
+    position: fixed;
+    width: 50px;
+    height: 6vh;
+    -webkit-transform: translate(0%, -38%);
+    transform: translate(0%, -38%);
+}
+
+#HomeTab{
+    background-color: #FF9090;
+}
+
+#AboutTab{
+    background-color: #FFF290;
+}
+
+#ProjectsTab{
+    background-color: #ACFFA5;
+}
+
+#ContactTab{
+    background-color: #CBA5FF;
+}
+
+#Home{
+    position: relative;
+    display: block;
+    height: 100vh;
+    background-color: #98D2EF;
+
+}
+
+#HomeCont{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#Title{
+    font-family: 'Monserrat', sans-serif;
+    font-size: 80px;
+    font-weight: 500;
+    margin: 0;
+}
+
+#Subtitle{
+    font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+    margin: 0;
+}
+
+#HomeFooter{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.londonScene{
+    position: absolute;
+}
+
+#London1{
+    z-index: 10;
+    bottom: -350px;
+}
+
+#London2{
+    z-index: 5;
+    bottom: -325px;
+}
+
+#London3{
+    z-index: 2;
+    bottom: -300px;
+}
+
+section{
+    height: 100vh;
+}
+
+#About{
+    height: auto;
+}
+
+#AboutSection{
+    width: 80vw;
+    margin: auto;
+    padding: 50px 0;
+}
+
+#AboutGrid{
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(10, 275px);
+    place-items: center;
+}
+
+.aboutHeader{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Monserrat', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 80px;
+}
+
+.aboutCard{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#AboutGrid>div:nth-of-type(1){
+    grid-row: 1/4;
+    grid-column: 1/2;
+}
+
+#AboutGrid>div:nth-of-type(2){
+    grid-row: 2/5;
+    grid-column: 2/3;
+}
+
+#AboutGrid>div:nth-of-type(4){
+    grid-row: 4/7;
+    grid-column: 1/2;
+}
+
+#AboutGrid>div:nth-of-type(3){
+    grid-row: 5/8;
+    grid-column: 2/3;
+}
+
+#AboutGrid>div:nth-of-type(5){
+    grid-row: 7/10;
+    grid-column: 1/2;
+}
+
+#AboutGrid>div:nth-of-type(6){
+    grid-row: 8/11;
+    grid-column: 2/3;
+}
+
+.picSec img{
+    height: 80%;
+    width: 80%;
+    background-color: skyblue;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.picSec h2{
+    color: white;
+    font-size: 50px;
+    font-family: 'Monserrat', sans-serif;
+    font-weight: 600;
+    margin: 0;
+}
+
+.textSec{
+    background-color: white;
+    border-radius: 40px;
+    justify-content: center;
+}
+
+.textSec h2{
+    color: #232944;
+    font-size: 50px;
+    font-family: 'Monserrat', sans-serif;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.textSec p{
+    width: 83%;
+    color: #232944;
+    font-size: 32px;
+    font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
+    margin: 0;
+    line-height: 55px;
+    text-align: center;
+}
+em{
+    color: #CC969E;
+}
+
+#Projects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ProjectsCont{
+    position: relative;
+    width: 75vw;
+    height: 80vh;
+}
+
+#Carousel{
+    height: 100%;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+#LeftCarBut{
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    height: 100%;
+    width: 20%;
+    cursor: pointer;
+}
+
+#RightCarBut{
+    position: absolute;
+    z-index: 5;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 20%;
+    cursor: pointer;
+}
+
+.carouselSlide{
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: top;
+    height: 100%;
+    width: 100%;
+    scroll-snap-align: start;
+}
+
+.projectsBut path{
+    transform: translate(40%, 40%);
+}
+
+#LeftCarBut{
+    left: -15%;
+}
+
+#RightCarBut{
+    right: -15%
+}
+
+.projectHeader{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Monserrat', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 80px;
+    width: 60%;
+    border-radius: 50px;
+    padding: 10px 50px;
+}
+
+.projectMain{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.projectDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 45%;
+    color: white;
+    border-radius: 50px;
+    font-size: 32px;
+    font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
+    margin: 0;
+    line-height: 55px;
+    padding: 10px 50px;
+}
+
+.projectMedia{
+    text-align: right;
+}
+
+#Contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ContactCont{
+    width: 70%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.contactRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+a{
+    display: block;
+    width: 85%;
+    font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: lighter;
+    color: white;
+    text-decoration: none;
+    transition: .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+a:hover{
+    color: #CBA5FF;
+}
