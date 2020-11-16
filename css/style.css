@@ -366,6 +366,7 @@ section{
     font-weight: 600;
     margin: 0;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .textSec p{
@@ -377,8 +378,25 @@ section{
     line-height: 55px;
     text-align: center;
 }
+
 em{
     color: #CC969E;
+}
+
+.aboutUL{
+    width: 100%;
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+}
+
+.aboutUL li{
+    color: #CC969E;
+    font-size: 32px;
+    font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
+    line-height: 55px;
 }
 
 #Projects{
@@ -462,6 +480,10 @@ em{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.projectText{
+    white-space: normal;
 }
 
 .projectDiv{
