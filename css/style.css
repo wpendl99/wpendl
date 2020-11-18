@@ -501,8 +501,27 @@ em{
     padding: 10px 50px;
 }
 
+.projectImgDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+}
+
+.projectPic{
+    position: absolute;
+    width: auto;
+    height: 100%;
+    border-radius: 20px;
+}
+
 .projectMedia{
     text-align: right;
+    padding: 0;
+}
+
+video{
+    border-radius: 40px;
 }
 
 #Contact{
@@ -531,7 +550,6 @@ em{
 
 a{
     display: block;
-    width: 85%;
     font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
     font-size: 40px;
     font-weight: lighter;
@@ -542,4 +560,8 @@ a{
 
 a:hover{
     color: #CBA5FF;
+}
+
+.contactA{
+    width: 85%
 }
