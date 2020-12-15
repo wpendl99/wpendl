@@ -1,11 +1,26 @@
 $window = $(window)
+$carousel = $("#Carousel")
 $AboutOffset = $("#About").offset();
 $ProjectsOffset = $("#Projects").offset();
 $ContactOffset = $("#Contact").offset();
+$VisitorLog = $("#VisitorLog").get(0)
+$VisitorBut = $("#VisitorLogToggle").get(0)
+$L1Offset = 0
+$L2Offset = 0
+$L3Offset = 0
 var lastScrollTop = $window.scrollTop();
 var isScrolling;
 
 const tabs = {"Home":$("#HomeTab"), "About":$("#AboutTab"), "Projects":$("#ProjectsTab"), "Contact":$("#ContactTab")}
+const dots = []
+
+
+function setOffset(){
+    $L1Offset = $("#London1").height() * .42046
+    $L2Offset = $("#London1").height() * .38509
+    $L3Offset = $("#London3").height() * .42539
+}
+
 
 function toggleMenu(event){
     let list = event.children
@@ -15,10 +30,14 @@ function toggleMenu(event){
     $("#MenuCont").get(0).classList.toggle("change");
 }
 
+function stopProp(e){
+    e.stopPropagation();
+}
+
 $window.scroll(function(){ //Add resize Parameter
-    $("#London1").css("bottom", Math.max(-350 + 0.2*window.scrollY, -350) + "px");
-    $("#London2").css("bottom", Math.max(-325 + 0.3*window.scrollY, -325) + "px");
-    $("#London3").css("bottom", Math.max(-300 + 0.4*window.scrollY, -300) + "px");
+    $("#London1").css("bottom", Math.max(-$L1Offset + 0.2*window.scrollY, -$L1Offset) + "px");
+    $("#London2").css("bottom", Math.max(-$L2Offset + 0.3*window.scrollY, -$L2Offset) + "px");
+    $("#London3").css("bottom", Math.max(-$L3Offset + 0.4*window.scrollY, -$L3Offset) + "px");
 
     if($("#MenuCont").hasClass("change")){
         toggleMenu($("#MenuButtonContainer").get(0));
@@ -71,10 +90,12 @@ function scrollToSpot(elmnt, section){
 }
 
 window.onload = () => {
+    setOffset();
     initTabs();
     initAboutSection();
     $window.scroll();
     initProjectsSection();
+    $carousel.scroll();
 };
 
 function initTabs(){
@@ -116,6 +137,41 @@ function initProjectsSection(){
         temp = Math.min($("#Carousel").children().length * $("#Carousel").width(), temp + $("#Carousel").width())
         $("#Carousel").scrollLeft(temp)
     });
+
+    var imgDiv = document.getElementById("ProjectImgDiv");
+    var fadeComplete = function(e) { imgDiv.appendChild(arr[0]); };
+    var arr = imgDiv.getElementsByTagName("img");
+    for(var i=0; i < arr.length; i++) {
+      arr[i].addEventListener("animationend", fadeComplete, false);
+    }
+
+    let slidesAmount = $(".carouselSlide").length;
+    let carInd = $("#CarouselIndicator");
+
+    for (let i of range(slidesAmount)){
+        carInd.append('<span class="carouselIndicatorDot"></span>')
+    }
+    
+    for (let dot of $(".carouselIndicatorDot").get()){
+        dots.push(dot)
+    }
+
+    $("#CarouselIndicatorBar").css("width", (slidesAmount - 1) * 65)
+}
+
+$carousel.scroll(function(){ //Add resize Parameter
+    let width = $carousel.width()
+    setDot(Math.floor(($carousel.scrollLeft() + width / 2)/width))
+});
+
+function setDot(num){
+    for (let i of range(dots.length)){
+        if(i == num){
+            dots[i].classList.add("mainDot")
+        } else {
+            dots[i].classList.remove("mainDot")
+        }
+    }
 }
 
 //Scroll Scroll

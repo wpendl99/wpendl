@@ -1,3 +1,10 @@
+:root{
+    --red: #FF9090;
+    --yellow: #FFF290; 
+    --green: #ACFFA5;
+    --purple: #CBA5FF;
+}
+
 body::-webkit-scrollbar {
     display: none;
     overflow-x: hidden;
@@ -9,9 +16,13 @@ body{
     overflow-x: hidden;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 #MainHeader{
     position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 15%;
     z-index: 30;
     box-sizing: border-box;
@@ -111,7 +122,8 @@ body{
     display: flex;
     align-items: center;
     height: 8vh;
-    width: 18vw;
+    width: 350px;
+    max-width: 80vw;
     border-radius: 80px;
     text-align: center;
     cursor: pointer;
@@ -121,6 +133,293 @@ body{
     font-size: 40px;
     transition: .1s ease-in-out;
 }
+
+.none{
+    opacity: 0;
+    z-index: -1 !important;
+}
+
+.dNone{
+    display: none;
+}
+
+#VisitorLog{
+    position: fixed;
+    z-index: 50;
+    height: 100vh;
+    width: 100vw;
+    transition: .2s ease-out;
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: hidden;
+    font-family: 'Monserrat', sans-serif;
+    color: #232944;
+}
+
+#VisitorLog::-webkit-scrollbar {
+    display: none;
+    overflow-x: hidden;
+}
+
+.toggleBut{
+    position: fixed;
+    fill: gray;
+    margin: 50px;
+    right: 0;
+    bottom: 0;
+    z-index: 55;
+    cursor: pointer;
+    transition: .1s cubic-bezier(.1,1.59,1,1.07);
+}
+
+.toggleBut:hover{
+    filter: brightness(1.4);
+}
+
+#VisitorList{
+    width: 100%;
+    table-layout: auto;
+    border: 1px solid #232944;
+    border-collapse: collapse;
+}
+
+td{
+    border: 1px solid #232944;
+    line-height: 2rem;
+}
+
+th{
+    border: 1px solid #232944;
+    background-color: #abd0e6;
+    text-align: left;
+}
+
+tr:nth-child(odd){
+    background-color: lightgray;
+}
+
+.remove{
+    color: red;
+    cursor: pointer;
+}
+
+.logCont{
+    background-color: white;
+    width: 60vw;
+    height: auto;
+    padding: 50px;
+    border-radius: 50px;
+    box-shadow: -3px 3px 20px black;
+    margin: 50px;
+    font-family: 'Monserrat', sans-serif;
+    color: #232944;
+}
+
+.margin{
+    margin: 50px;
+}
+
+#FormText > *{
+    margin: 0px;
+}
+
+#FormInput{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-gap: 1rem;
+}
+
+input:focus{
+    outline:0;
+}
+
+.fullIn{
+    grid-column: span 6;
+}
+
+.halfIn{
+    grid-column: span 3;
+}
+
+.sIn{
+    grid-column: span 2;
+}
+
+.xsIn{
+    grid-column: span 1;
+}
+
+.input{
+    padding: 10px 20px;
+    border-radius: 50px;
+    border-style: solid;
+    border-width: 8px;
+    border-color: gray;
+    color: #232944;
+    appearance: none;
+    transition: all .1s ease;
+}
+
+.input::placeholder{
+    color: gray;
+}
+
+.input:focus, .input:focus::placeholder{
+    color: #232944;
+    background-color: white;
+}
+
+.input:active{
+    filter: brightness(.9);
+}
+
+.redB:focus{
+    border-color: var(--red);
+}
+
+.yellowB:focus{
+    border-color: var(--yellow);
+}
+
+.greenB:focus{
+    border-color: var(--green);
+}
+
+.purpleB:focus{
+    border-color: var(--purple);
+}
+
+#Referral li{
+    list-style-type: none;
+}
+
+.inCont{
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.inCont input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: relative;
+    height: 25px;
+    width: 25px;
+    margin-right: 15px;
+    background-color: #eee;
+    transition: all .1s ease;
+}
+
+.inCont:hover input ~ .checkmark {
+    filter: brightness(.95);
+}
+  
+.inCont input:checked ~ .checkmark {
+    background-color: #2196F3;
+    box-shadow: -1px 1px 4px gray;
+}
+
+#Referral>li:nth-child(1) label input:checked ~ .checkmark{
+    background-color: var(--red);
+}
+
+#Referral>li:nth-child(2) label input:checked ~ .checkmark{
+    background-color: var(--yellow);
+}
+
+#Referral>li:nth-child(3) label input:checked ~ .checkmark{
+    background-color: var(--green);
+}
+
+#Referral>li:nth-child(4) label input:checked ~ .checkmark{
+    background-color: var(--purple);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.inCont input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.inCont .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.commentsText{
+    width: 100%;
+    resize: none;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.commentsText:focus{
+    outline: none;
+}
+
+#SubmitBtn{
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+    border-radius: 50px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: lightgray;
+    color: #232944;
+    box-shadow: -3px 3px 4px grey;
+    padding: 10px;
+    font-size: 1.5rem;
+    background-size: 250%;
+    background-image: linear-gradient(to right, white 0%, white 45%, var(--yellow) 55%, var(--red) 100%);
+    transition: all .2s ease;
+}
+
+#SubmitBtn:hover{
+    background-position: right center;
+    filter: brightness(1.1);
+    box-shadow: 0px 0px 2px grey;
+    color: #EEEEEE;
+}
+
+#SubmitBtn:focus{
+    outline: none;
+    filter: brightness(.8);
+    border-color: gray;
+}
+
+
 
 #HomeLink{
     border: 10px solid #FF9090;
@@ -249,6 +548,14 @@ body{
     position: absolute;
 }
 
+#FootM{
+    bottom: 0px;
+    min-width: 100vw;
+    height: 40vh;
+    object-fit: contain;
+    transform: translate(0px, 2px);
+}
+
 #London1{
     z-index: 10;
     bottom: -350px;
@@ -281,10 +588,6 @@ section{
 #AboutGrid{
     height: auto;
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(10, 275px);
-    place-items: center;
 }
 
 .aboutHeader{
@@ -345,21 +648,24 @@ section{
     object-fit: cover;
 }
 
-.picSec h2{
+.picSec h3{
     color: white;
     font-size: 50px;
     font-family: 'Monserrat', sans-serif;
     font-weight: 600;
     margin: 0;
+    text-align: center;
 }
 
 .textSec{
     background-color: white;
     border-radius: 40px;
     justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.textSec h2{
+.textSec h3{
     color: #232944;
     font-size: 50px;
     font-family: 'Monserrat', sans-serif;
@@ -370,7 +676,7 @@ section{
 }
 
 .textSec p{
-    width: 83%;
+    width: 90%;
     color: #232944;
     font-size: 32px;
     font-family: 'Proxima Nova', Arial, Helvetica, sans-serif;
@@ -408,7 +714,7 @@ em{
 #ProjectsCont{
     position: relative;
     width: 75vw;
-    height: 80vh;
+    height: 75vh;
 }
 
 #Carousel{
@@ -419,6 +725,12 @@ em{
     white-space: nowrap;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#Carousel::-webkit-scrollbar{
+    display: none;
 }
 
 #LeftCarBut{
@@ -501,7 +813,7 @@ em{
     padding: 10px 50px;
 }
 
-.projectImgDiv{
+#ProjectImgDiv{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -511,17 +823,89 @@ em{
 .projectPic{
     position: absolute;
     width: auto;
-    height: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
     border-radius: 20px;
+    object-fit: contain;
+}
+
+#ProjectImgDiv img:nth-of-type(1) {
+    animation-name: fader;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    z-index: 20;
+}
+
+#ProjectImgDiv img:nth-of-type(2) {
+    z-index: 10;
+}
+
+#ProjectImgDiv img:nth-of-type(n+3) {
+    display: none;
+}
+
+@keyframes fader {
+    from { opacity: 1.0; }
+    to   { opacity: 0.0; }
 }
 
 .projectMedia{
     text-align: right;
     padding: 0;
+    margin: 10px 0;
+    white-space: normal;
 }
 
 video{
-    border-radius: 40px;
+    border-radius: 20px;
+}
+
+video:focus{
+    outline: none;
+}
+
+#CarouselIndicator{
+    position: relative;
+    margin: 10px auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+#CarouselIndicatorBarCont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+
+#CarouselIndicatorBar{
+    position: absolute;
+    height: 8px;
+    background-color: #ACFFA5;
+}
+
+.carouselIndicatorDot{
+    z-index: 5;
+    margin: 0 20px;
+    height: 25px;
+    width: 25px;
+    background-color: #242628;
+    border-radius: 50%;
+    border: 6px solid #ACFFA5;
+    display: inline-block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    transition: all .15s ease-out;
+}
+
+.mainDot{
+    background-color: #ACFFA5;
 }
 
 #Contact{
@@ -564,4 +948,254 @@ a:hover{
 
 .contactA{
     width: 85%
+}
+
+@media screen and (min-width: 320px){  /* Mobile Devices */
+    h1{
+        font-size: 3rem !important;
+    }
+    h2{
+        font-size: 2rem !important;
+        white-space: normal;
+    }
+    h3{
+        font-size: 1.25rem !important;
+        margin: 0;
+    }
+    a{
+        font-size: 1.25rem !important;
+    }
+    h4, h5{
+        font-size: 1rem !important
+    }
+    p, li{
+        font-size: 1rem !important;
+        line-height: 1.75rem !important;
+    }
+    .d{
+        display: none;
+    }
+    .m{
+        display: initial;
+    }
+    #PageTabs{
+        display: none;
+    }
+    #AboutSection{
+        width: 100vw;
+    }
+    #AboutGrid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #AboutGrid div{
+        margin: 20px;
+    }
+    #AboutGrid h3{
+        margin-top: 10px;
+    }
+    #Projects{
+        min-height: 100vh;
+        height: 120vw;
+    }
+    #ProjectsCont{
+        width: 80%;
+        height: 80%;
+    }
+    .projectHeader{
+        margin: 0 auto;
+        text-align: center;
+    }
+    .projectMain{
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .projectDiv{
+        text-align: center;
+        width: 80%;
+    }
+    .projectText{
+        height: 40%;
+    }
+    hr{
+        width: 20%;
+        margin: 30px;
+    }
+    .projectMedia{
+        line-height: 2rem;
+    }
+    #ContactCont{
+        width: 90%;
+    }
+    .contactA{
+        margin-left: 10px;
+    }
+}
+
+@media screen and (min-width: 481px){  /* Small Tablets */ 
+    h1{
+        font-size: 4rem !important;
+    }
+    h2{
+        font-size: 3rem !important;
+    }
+    h3{
+        font-size: 2rem !important;
+        margin: 1em 0;
+    }
+    a{
+        font-size: 2rem !important;
+        line-height: 2.5rem !important;
+    }
+    h4{
+        font-size: 1.25rem !important;
+    }
+    h5{
+        font-size: 1rem !important;
+    }
+    p, li{
+        font-size: 1.25rem !important;
+        line-height: 2.25rem !important;
+    }
+
+}
+
+@media screen and (min-width: 769px){ /* Small Laptops */
+    h1{
+        font-size: 4rem !important;
+    }
+    h2{
+        font-size: 3rem !important;
+    }
+    h3{
+        font-size: 2.5rem !important;
+    }
+    a{
+        font-size: 2rem !important;
+    }
+    h4, h5{
+        font-size: 1.5rem !important;
+    }
+    p, li{
+        font-size: 1.5rem !important;
+        line-height: 3rem !important;
+    }
+    #AboutSection{
+        width: 80vw;
+    }
+    #AboutGrid div{
+        margin: 30px;
+    }
+    #AboutGrid h3{
+        margin-top: 20px;
+    }
+    .projectMedia{
+        line-height: 3.5rem;
+    }
+    #ContactCont{
+        width: 80%;
+    }
+    .contactA{
+        width: 75%;
+        margin-left: 20px;
+    }
+}
+
+@media screen and (min-width: 1025px){ /* Normal Laptop */
+    h1{
+        font-size: 5rem !important;
+    }
+    h2{
+        font-size: 4rem !important;
+        white-space: nowrap;
+    }
+    h3{
+        font-size: 3rem !important;
+    }
+    a{
+        font-size: 2.5rem !important;
+    }
+    h4{
+        font-size: 1.75rem !important;
+    }
+    h5{
+        font-size: 1.5rem !important;
+    }
+    p, li{
+        font-size: 2rem !important;
+        line-height: 3.5rem !important;
+    }
+    .d{
+        display: initial;
+    }
+    .m{
+        display: none;
+    }
+    #PageTabs{
+        display: flex;
+    }
+    #AboutGrid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(10, 275px);
+        place-items: center;
+    }
+    #AboutGrid h3{
+        margin-top: 10px;
+    }
+    #Projects{
+        height: 100vh;
+    }
+    #ProjectsCont{
+        width: 75%;
+        height: 85%;
+    }
+    .projectHeader{
+        margin: auto 0;
+        text-align: left;
+    }
+    .projectMain{
+        height: 80%;
+        flex-direction: row;
+    }
+    .projectDiv{
+        text-align: left;
+        width: 45%;
+    }
+    .projectText{
+        height: 100%;
+    }
+    hr{
+        display: none;
+    }
+    .projectMedia{
+        text-align: right;
+    }
+    #ContactCont{
+        width: 70%;
+    }
+    .contactA{
+        width: 85%;
+    }
+}
+
+@media screen and (min-width: 1201px){ /* Phat Screen */
+    h1{
+        font-size: 5rem !important;
+    }
+    h2{
+        font-size: 4rem !important;
+    }
+    h3{
+        font-size: 3rem !important;
+    }
+    a{
+        font-size: 2.5rem !important;
+    }
+    p, li{
+        font-size: 2rem !important;
+        line-height: 3.5rem !important;
+    }
 }

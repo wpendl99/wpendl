@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WPendl.me</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
     <script src="/js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
@@ -28,6 +32,103 @@
 
         </div>
     </header>
+    <div id="VisitorLog" class="none" onclick="toggleForm(this)">
+        <div id="VisitorLogCont" class="logCont" onclick="stopProp(event)">
+            <div class="margin">
+                <div id="FormText">
+                    <h2>Visitor's Log</h2>
+                    <p>Below is a list of Visitors that you have entered into the site</p>
+                    <h5>* This information is only stored on your computer *</h3>
+                </div>
+                <table id="VisitorList">
+                    <tr>
+                        <th><h4>Name:</h4></th>
+                        <th><h4>Address:</h4></th>
+                        <th><h4>Phone:</h4></th>
+                        <th><h4>Email:</h4></th>
+                        <th><h4>Actions:</h4></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="FormCont" class="logCont dNone" onclick="stopProp(event)">
+            <form onsubmit="submitForm(event)" name="VisitorEntry" id="VisitorEntry" class="margin">
+                <div id="FormText">
+                    <h2>Visitor's Log Entry</h2>
+                    <p>Please fill out the information to be included in my personal Visitor's Log</p>
+                    <h5>* This information is only stored on your computer *</h3>
+                </div>
+                <div id="FormInput">
+                    <input type="text" id="FirstName" name="FirstName" placeholder="First Name" class="halfIn input redB" required>
+                    <input type="text" id="LastName" name="LastName" placeholder="Last Name" class="halfIn input redB" required>
+                    <input type="text" id="Street" name="Street" placeholder="Street Address" class="fullIn input yellowB" required>
+                    <input type="text" id="City" name="City" placeholder="City" class="halfIn input greenB" required>
+                    <input type="text" id="State" name="State" placeholder="State"  class="xsIn input greenB" list="states" maxlength="2" required>
+                    <datalist id="states"></datalist>
+                    <input type="text" id="Zip" name="Zip" placeholder="Zip Code"  class="sIn input greenB" maxlength="5" onkeypress="return isNumberKey(event)" required>
+                    <input type="text" id="Number" name="Number" placeholder="Phone Number" class="halfIn input purpleB" required>
+                    <input type="text" id="Email" name="Email" placeholder="Email" class="halfIn input purpleB" required pattern="\w+@\w+.\w+">
+                    <div class="halfIn">
+                        <p>How did you find me?</p>
+                        <ul id="Referral">
+                            <li>
+                                <label for="SocialMedia" class="inCont">
+                                    <input type="checkbox" id='SocialMedia' name='SocialMedia' value="social">
+                                    <span class="checkmark"></span>
+                                    Social Media
+                                </label>
+                            </li>
+                            <li>
+                                <label for="Friend" class="inCont">
+                                    <input type="checkbox" id='Friend' name='Friend' value="friend">
+                                    <span class="checkmark"></span>
+                                    Friend/Colleague
+                                </label>
+                            </li>
+                            <li>
+                                <label for="Google" class="inCont">
+                                    <input type="checkbox" id='Google' name='Google' value="google">
+                                    <span class="checkmark"></span>
+                                    Google Search
+
+                                </label>
+                            </li>
+                            <li>
+                                <label for="Other" class="inCont">
+                                    <input type="checkbox" id='Other' name='Other' value="other">
+                                    <span class="checkmark"></span>
+                                    Other
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="halfIn comments">
+                        <p>Do you have any comments for Me?</p>
+                        <textarea rows="8" id="comment" placeholder="Comments for Me" class="commentsText"></textarea>
+                    </div>
+                    
+                </div>
+                <button id="SubmitBtn" type="submit">Submit Entry</button>
+            </form>
+        </div>
+
+        <div id="VisitorLogContToggle" class="toggleBut formBut none" onclick="stopProp(event)">
+            <svg class="VisitorLogIcon" viewBox="0 0 783.19 783.19" width="100" height="100" onclick="toggleFormConts(this)">
+                <path class="cls-1" d="M560,155.77H223.15a33.73,33.73,0,0,0-33.69,33.69V593.73a33.73,33.73,0,0,0,33.69,33.69H560a33.71,33.71,0,0,0,33.69-33.69V189.46A33.71,33.71,0,0,0,560,155.77ZM391.6,459H256.84V425.28H391.6ZM526.35,391.6H256.84V357.91H526.35Zm0-67.38H256.84V290.53H526.35Zm0-67.38H256.84V223.15H526.35ZM560,155.77H223.15a33.73,33.73,0,0,0-33.69,33.69V593.73a33.73,33.73,0,0,0,33.69,33.69H560a33.71,33.71,0,0,0,33.69-33.69V189.46A33.71,33.71,0,0,0,560,155.77ZM391.6,459H256.84V425.28H391.6ZM526.35,391.6H256.84V357.91H526.35Zm0-67.38H256.84V290.53H526.35Zm0-67.38H256.84V223.15H526.35ZM560,155.77H223.15a33.73,33.73,0,0,0-33.69,33.69V593.73a33.73,33.73,0,0,0,33.69,33.69H560a33.71,33.71,0,0,0,33.69-33.69V189.46A33.71,33.71,0,0,0,560,155.77ZM391.6,459H256.84V425.28H391.6ZM526.35,391.6H256.84V357.91H526.35Zm0-67.38H256.84V290.53H526.35Zm0-67.38H256.84V223.15H526.35ZM560,155.77H223.15a33.73,33.73,0,0,0-33.69,33.69V593.73a33.73,33.73,0,0,0,33.69,33.69H560a33.71,33.71,0,0,0,33.69-33.69V189.46A33.71,33.71,0,0,0,560,155.77ZM391.6,459H256.84V425.28H391.6ZM526.35,391.6H256.84V357.91H526.35Zm0-67.38H256.84V290.53H526.35Zm0-67.38H256.84V223.15H526.35ZM391.6,0C175.32,0,0,175.32,0,391.59s175.32,391.6,391.6,391.6,391.59-175.33,391.59-391.6S607.87,0,391.6,0ZM627.42,593.73A67.38,67.38,0,0,1,560,661.11H223.15a67.38,67.38,0,0,1-67.38-67.38V189.46a67.38,67.38,0,0,1,67.38-67.38H560a67.38,67.38,0,0,1,67.38,67.38ZM560,155.77H223.15a33.73,33.73,0,0,0-33.69,33.69V593.73a33.73,33.73,0,0,0,33.69,33.69H560a33.71,33.71,0,0,0,33.69-33.69V189.46A33.71,33.71,0,0,0,560,155.77ZM391.6,459H256.84V425.28H391.6ZM526.35,391.6H256.84V357.91H526.35Zm0-67.38H256.84V290.53H526.35Zm0-67.38H256.84V223.15H526.35ZM560,155.77H223.15a33.73,33.73,0,0,0-33.69,33.69V593.73a33.73,33.73,0,0,0,33.69,33.69H560a33.71,33.71,0,0,0,33.69-33.69V189.46A33.71,33.71,0,0,0,560,155.77ZM391.6,459H256.84V425.28H391.6ZM526.35,391.6H256.84V357.91H526.35Zm0-67.38H256.84V290.53H526.35Zm0-67.38H256.84V223.15H526.35ZM560,155.77H223.15a33.73,33.73,0,0,0-33.69,33.69V593.73a33.73,33.73,0,0,0,33.69,33.69H560a33.71,33.71,0,0,0,33.69-33.69V189.46A33.71,33.71,0,0,0,560,155.77ZM391.6,459H256.84V425.28H391.6ZM526.35,391.6H256.84V357.91H526.35Zm0-67.38H256.84V290.53H526.35Zm0-67.38H256.84V223.15H526.35Z"/>            </svg>
+            </svg>
+        </div>
+        <div id="NewVisitorLogContToggle" class="toggleBut formBut" onclick="stopProp(event)">
+            <svg class="VisitorLogIcon" viewBox="0 0 783.19 783.19" width="100" height="100" onclick="toggleFormConts(this)">
+                <path class="cls-1" d="M406.47,251.27,166.33,491.41l-11,99.71,99.7-11,240-240ZM250.4,470.05,393.62,326.83l26,26L276.42,496.07ZM406.47,251.27,166.33,491.41l-11,99.71,99.7-11,240-240ZM250.4,470.05,393.62,326.83l26,26L276.42,496.07ZM551.24,252.68l-.06-.05-57.39-57.4a22.07,22.07,0,0,0-31.22,0l-.06,0-29.89,29.89,88.67,88.67,29.89-29.89A22.08,22.08,0,0,0,551.24,252.68Zm0,0-.06-.05-57.39-57.4a22.07,22.07,0,0,0-31.22,0l-.06,0-29.89,29.89,88.67,88.67,29.89-29.89A22.08,22.08,0,0,0,551.24,252.68Zm-144.77-1.41L166.33,491.41l-11,99.71,99.7-11,240-240ZM250.4,470.05,393.62,326.83l26,26L276.42,496.07ZM406.47,251.27,166.33,491.41l-11,99.71,99.7-11,240-240ZM250.4,470.05,393.62,326.83l26,26L276.42,496.07ZM551.24,252.68l-.06-.05-57.39-57.4a22.07,22.07,0,0,0-31.22,0l-.06,0-29.89,29.89,88.67,88.67,29.89-29.89A22.08,22.08,0,0,0,551.24,252.68Zm0,0-.06-.05-57.39-57.4a22.07,22.07,0,0,0-31.22,0l-.06,0-29.89,29.89,88.67,88.67,29.89-29.89A22.08,22.08,0,0,0,551.24,252.68ZM166.33,491.41l-11,99.71,99.7-11,240-240-88.53-88.81Zm110.09,4.66-26-26L393.62,326.83l26,26ZM391.6,0C175.32,0,0,175.32,0,391.59s175.32,391.6,391.6,391.6,391.59-175.33,391.59-391.6S607.87,0,391.6,0ZM265.49,616,136.72,630.12l-2.21.18A18.39,18.39,0,0,1,116,612a19.05,19.05,0,0,1,.11-2.14l14.17-128.77a18.39,18.39,0,0,1,5.33-10.86L392.09,213.77l3.06-3.06,41.42-41.42a58.88,58.88,0,0,1,83.26-.08l.08.08,57.21,57.21a58.89,58.89,0,0,1,.09,83.26l-.09.08L276.34,610.62A18.34,18.34,0,0,1,265.49,616ZM649.6,630.3H355.26a18.4,18.4,0,0,1,0-36.79H649.6a18.4,18.4,0,1,1,0,36.79ZM551.24,252.68l-.06-.05-57.39-57.4a22.07,22.07,0,0,0-31.22,0l-.06,0-29.89,29.89,88.67,88.67,29.89-29.89A22.08,22.08,0,0,0,551.24,252.68ZM166.33,491.41l-11,99.71,99.7-11,240-240-88.53-88.81Zm110.09,4.66-26-26L393.62,326.83l26,26Zm130.05-244.8L166.33,491.41l-11,99.71,99.7-11,240-240ZM250.4,470.05,393.62,326.83l26,26L276.42,496.07ZM551.24,252.68l-.06-.05-57.39-57.4a22.07,22.07,0,0,0-31.22,0l-.06,0-29.89,29.89,88.67,88.67,29.89-29.89A22.08,22.08,0,0,0,551.24,252.68Zm0,0-.06-.05-57.39-57.4a22.07,22.07,0,0,0-31.22,0l-.06,0-29.89,29.89,88.67,88.67,29.89-29.89A22.08,22.08,0,0,0,551.24,252.68Zm-144.77-1.41L166.33,491.41l-11,99.71,99.7-11,240-240ZM250.4,470.05,393.62,326.83l26,26L276.42,496.07ZM406.47,251.27,166.33,491.41l-11,99.71,99.7-11,240-240ZM250.4,470.05,393.62,326.83l26,26L276.42,496.07ZM551.24,252.68l-.06-.05-57.39-57.4a22.07,22.07,0,0,0-31.22,0l-.06,0-29.89,29.89,88.67,88.67,29.89-29.89A22.08,22.08,0,0,0,551.24,252.68Zm-144.77-1.41L166.33,491.41l-11,99.71,99.7-11,240-240ZM250.4,470.05,393.62,326.83l26,26L276.42,496.07Z"/>
+            </svg>
+        </div>
+    
+    </div>
+    <div id="VisitorLogToggle" class="toggleBut">
+        <svg class="VisitorLogIcon" viewBox="0 0 783.19 783.19" width="100" height="100" onclick="toggleForm(this)">
+            <polygon class="cls-1" points="186.8 249.7 306.26 196.61 306.26 534.72 186.8 587.81 186.8 249.7"/><polygon class="cls-1" points="340.4 196.61 459.86 249.7 459.86 587.81 340.4 534.72 340.4 196.61"/><polygon class="cls-1" points="494 249.16 596.4 197.96 596.4 535.26 494 586.46 494 249.16"/><path class="cls-1" d="M391.6,0C175.32,0,0,175.32,0,391.59s175.32,391.6,391.6,391.6,391.59-175.33,391.59-391.6S607.87,0,391.6,0ZM630.53,545.81a17.07,17.07,0,0,1-9.44,15.28L484.56,629.35c-.28.19-.58.07-.85.19a15.07,15.07,0,0,1-12.92.29c-.26-.15-.53-.05-.79-.15l-146.67-65.2-146.67,65.2a17.08,17.08,0,0,1-24-15.6V238.61A17.09,17.09,0,0,1,162.8,223l153.6-68.26c.24-.11.51-.12.77-.23a17.87,17.87,0,0,1,2-.61,18.1,18.1,0,0,1,2.07-.43,26.26,26.26,0,0,1,4.16,0,18.1,18.1,0,0,1,2.07.43,17.87,17.87,0,0,1,2,.61c.26.11.53.12.77.23l146.24,65,129.34-64.68a17.06,17.06,0,0,1,24.69,15.28Z"/>
+        </svg>
+    </div>
     <aside id="MenuCont">
         <div id="LinksCont" class="menuConts">
             <div id="HomeLink" class="menuLinks" onclick="scrollToSpot(this, '#Home');" onmouseover="setLink(this,'Home')" onmouseout="getTab()"><p>Home</p></div>
@@ -47,40 +148,42 @@
     <main id="Home">
         <div id="HomeCont">
             <h1 id="Title">WPendl.me</h1>
-            <h2 id="Subtitle">A Website about Me</h2>
+            <h4 id="Subtitle">A Website about Me</h2>
         </div>
-        <footer id="HomeFooter">
-            <img src="/img/Layer1.svg" id="London1" class="londonScene" alt="">
-            <img src="/img/Layer2.svg" id="London2" class="londonScene" alt="">
-            <img src="/img/Layer3.svg" id="London3" class="londonScene" alt="">
+        <footer id="HomeFooter" class="d">
+            <img src="/img/home/Layer1.svg" id="London1" class="londonScene" alt="">
+            <img src="/img/home/Layer2.svg" id="London2" class="londonScene" alt="">
+            <img src="/img/home/Layer3.svg" id="London3" class="londonScene" alt="">
+        </footer>
+        <footer id="HomeFooter" class="m">
+            <img src="/img/home/mFoot.svg" id="FootM" class="londonScene" alt="">
         </footer>
     </main>
     <section id="About" style="background-color: #242A43;">
         <div id="AboutSection">
             <div id="AboutGrid">
-                <h1 class="aboutHeader">About Me</h1>
+                <h2 class="aboutHeader">About Me</h2>
                 <div class="picSec aboutCard">
-                    <img src="/img/ME.JPG" alt="The Best Part of Me">
-                    <h2></h2>
+                    <img src="/img/about/ME.JPG" alt="The Best Part of Me">
+                    <h3></h3>
                 </div>
                 <div class="textSec aboutCard">
-                    <h2>Meet Me</h2>
+                    <h3>Meet Me</h3>
                     <p>My name is William Pendleton. I am a <em>Dreamer</em>, a <em>Critial Thinker</em> and a <em>Problem Solver</em>.</p>
                 </div>
                 <div class="picSec aboutCard">
-                    <img src="/img/Mission.jpg" alt="England & Me">
-                    <h2></h2>
+                    <img src="/img/about/Mission.jpg" alt="England & Me">
+                    <h3></h3>
                 </div>
                 <div class="textSec aboutCard">
-                    <h2></h2>
                     <p>I was born and raised in <em>Utah, USA</em> and after giving service for my church for 2 Years in <em>England London</em>, I am continuing my education at <em>Utah Valley University</em> in hopes of one days being able to use my skills and talents to <em>make a difference</em> in the world.</p>
                 </div>
                 <div class="picSec aboutCard">
-                    <img src="/img/Uvu.jpg" alt="Me @ UVU">
-                    <h2></h2>
+                    <img src="/img/about/Uvu.jpg" alt="Me @ UVU" style="object-position: 10% 0%;">
+                    <h3></h3>
                 </div>
                 <div class="textSec aboutCard">
-                    <h2>Some of my skills include:</h2>
+                    <h3>Some of my skills include:</h3>
                     <ul class="aboutUL">
                         <li><em>Computer Programming</em></li>
                         <li><em>Graphic/Web design</em></li>
@@ -104,52 +207,62 @@
                     <path fill="white" d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"></path>
                 </svg>
                 <div class="carouselSlide">
-                    <h1 class="projectHeader">Project Light The World</h1>
+                    <h2 class="projectHeader">Project Light The World</h2>
                     <div class="projectMain">
                         <div class="projectText projectDiv">
                             <p>
                                 During my High School education, I had the opportunity to futher my Electrical Engineering and Computer Programming skills by working on independant projects, such as my LED Cube.
                             </p>
                         </div>
+                        <hr>
                         <div class="projectMedia projectDiv">
                             <video width="100%" height="auto" autoplay controls muted loop>
-                                <source src="/img/MovieLit.mp4" type="video/mp4">
+                                <source src="/img/project/MovieLit.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
                 </div>
                 <div class="carouselSlide">
-                    <h1 class="projectHeader">Project Inspire</h1>
+                    <h2 class="projectHeader">Project Inspire</h2>
                     <div class="projectMain">
                         <div class="projectText projectDiv">
                             <p>
                                 While I was serving in London, I had the opportunity to design and create weekly publications that I published to my peers. This required my experience in graphic design to help create material that was both motivating and appealing.
                             </p>
                         </div>
-                        <div class="projectMedia projectDiv projectImgDiv">
-                            <img class="projectPic" src="/img/img-1" alt="">
-                            <img class="projectPic" src="/img/img-2" alt="">
-                            <img class="projectPic" src="/img/img-3" alt="">
-                            <img class="projectPic" src="/img/img-4" alt="">
-                            <img class="projectPic" src="/img/img-5" alt="">
+                        <hr>
+                        <div id="ProjectImgDiv" class="projectMedia projectDiv">
+                            <img class="projectPic" src="/img/project/img-1" alt="">
+                            <img class="projectPic" src="/img/project/img-2" alt="">
+                            <img class="projectPic" src="/img/project/img-3" alt="">
+                            <img class="projectPic" src="/img/project/img-4" alt="">
+                            <img class="projectPic" src="/img/project/img-5" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="carouselSlide">
-                    <h1 class="projectHeader">Project Freelance</h1>
+                    <h2 class="projectHeader">Project Freelance</h2>
                     <div class="projectMain">
                         <div class="projectText projectDiv">
                             <p>
                                 During my free time now, I like to work on independent projects that will help me to continue to learn and grow my current skills and abilities. One of those independent projects is working as a freelancer to make websites for companies. 
                             </p>
                         </div>
+                        <hr>
                         <div class="projectMedia projectDiv">
-                            <h2>Check out my other sites:</h2>
+                            <h3>Check out my other sites:</h3>
                             <a href="https://www.giantrw.com">Giant Rent and Wash</a>
                             <a href="https://www.annamerican.com">Ann American</a>
                             <a href="https://www.lcbapartments.com">LCB Apartments</a>
-                            <h4>Just to name a few....</h4>
+                            <h5>Just to name a few....</h5>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div id="CarouselIndicatorCont">
+                <div id="CarouselIndicator">
+                    <div id="CarouselIndicatorBarCont">
+                        <div id="CarouselIndicatorBar"></div>
                     </div>
                 </div>
             </div>
@@ -177,6 +290,11 @@
             </div>
         </div>
     </section>
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/validate.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
 </body>
 </html>
