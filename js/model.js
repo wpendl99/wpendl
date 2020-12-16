@@ -36,8 +36,8 @@ class Visitor {
  }
  
 visitors = [ 
-    new Visitor(1,"Ken","Jenson","1234 W. Main St.","Mapleton","Utah","84664","(801) 444-5555","ken@gmail.com",{google:true,yahoo:false,friend:true}, "notes"),
-    new Visitor(2,"Ben","Jenson","1234 W. Main St.","Mapleton","Utah","84664","(801) 444-5555","ben@gmail.com",{google:true,yahoo:false,friend:false}, "notes")
+    new Visitor(1,"Will","Pendleton","1234 W. Main St.","Orem","Utah","84604","(801) 555-4444","me@wpendl.me",{google:true,yahoo:false,friend:true}, "notes"),
+    new Visitor(2,"Ben","Jenson","4321 W. Main St.","Mapleton","Utah","84664","(801) 444-5555","ben@gmail.com",{google:true,yahoo:false,friend:false}, "notes")
 ];
 
 
